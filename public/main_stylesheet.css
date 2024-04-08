@@ -1,0 +1,195 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+
+    width: 100%;
+    height: auto;
+
+    display: flex;
+    flex-direction: column;
+
+    border: 1px solid yellow;
+
+    min-height: 100vh;
+}
+
+#page_header {
+    background-color: white;
+    border: 2px solid black;
+    display: flex;
+    padding: 10px;
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+
+    align-items: center;
+    justify-content: space-between;
+}
+
+#page_title {
+    font-size: 50px;
+}
+
+#add_recipe, #back_button {
+    padding: 10px;
+
+    font-weight: bold;
+}
+
+main {
+    flex: 1;
+
+    margin-top: 7.5vh;
+}
+
+.recipe_container {
+    border: 2px solid blue;
+
+    height: 30vh;
+
+    margin-top: 1%;
+    margin-bottom: 1%;
+    margin-left: 10%;
+    margin-right: 10%;
+
+    box-shadow: 5px 5px 5px darkgrey;
+    
+    overflow: auto;
+}
+
+.recipe_header {
+    background-color: lightgray;
+
+    display: flex;
+
+    align-items: center;
+
+    padding: 5px;
+}
+
+.recipe_image {
+    border: 1px solid black;
+}
+
+.recipe_title {
+    align-self: flex-start;
+
+    padding: 1%;
+
+    font-size: 30px;
+}
+
+.update_button {
+    align-self: flex-end;
+
+    padding: 5px 10px 5px 10px;
+
+    font-weight: bold;
+}
+
+.delete_button {
+    align-self: flex-end;
+
+    padding: 5px 10px 5px 10px;
+    margin-left: 1%;
+
+    font-weight: bold;
+}
+
+.recipe_cooking_time {
+    align-self: flex-end;
+
+    margin-left: auto;
+
+    padding: 1%;
+
+    color: blue;
+    font-size: 20px;
+}
+
+.ingredient_instruction_container {
+    display: flex;
+
+    border: 1px darkgreen solid;
+}
+
+.recipe_ingredient_container {
+    border: 1px solid purple;
+
+    width: 50%;
+}
+
+.ingredients_title {
+    margin: 1%;
+
+    font-size: 25px;
+}
+
+.recipe_ingredient_list {
+    margin-top: 2%;
+    margin-bottom: 2%;
+    margin-left: 30%;
+
+    font-size: 20px;
+}
+
+.recipe_instruction_container {
+    border: 1px solid red;
+
+    width: 50%;
+}
+
+.instructions_title {
+    margin: 1%;
+
+    font-size: 25px;
+}
+
+.recipe_instructions {
+    margin-top: 2%;
+    margin-bottom: 2%;
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+#form_main {
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid green;
+}
+
+#recipe_form {
+    font-size: 20px;
+
+    padding: 10px;
+
+    width: 20%;
+    border: 2px solid purple;
+}
+
+.dynamic_ingredients {
+    margin: auto 5px auto auto;
+}
+
+#submit_form_button, #add_ingredient_button {
+    padding: 3px 10px;
+}
+
+footer {
+    border: 2px solid black;
+
+    margin-top: auto;
+
+    height: 7vh;
+}

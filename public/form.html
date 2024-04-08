@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="./main_stylesheet.css">
+    <script src="form_script.js"></script>
+
+    <title>Document</title>
+</head>
+<body>
+    <header id="page_header">
+        <h1 id="page_title">Title</h1>
+
+        <button id="back_button">Back</button>
+    </header>
+
+    <main id="form_main">
+
+        <h2 id="form_headline">New recipe</h2>
+
+        <form method="POST" id="recipe_form">
+            <p>Title:</p>
+            <input type="text" name="title" id="title" required>
+        
+            <div id="ingredient_input_container">
+                <p>Ingredients:</p>
+                <input type="text" name="ingredients[]" required>
+            </div>
+            
+        
+            <p>Cooking time (minutes):</p>
+            <input type="number" name="cookingTime" id="cookingTime" required>
+        
+            <p>Instructions:</p>
+            <textarea name="instructions" id="instructions" required></textarea>
+        
+            <button type="submit" id="submit_form_button">Submit</button>
+            <button type="button" id="add_ingredient_button">Add Ingredient</button>
+        </form>
+
+    </main>
+    <footer>footer</footer>
+</body>
+</html>
