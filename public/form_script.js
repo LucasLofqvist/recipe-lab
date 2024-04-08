@@ -16,14 +16,14 @@ document.addEventListener("DOMContentLoaded", function() {
 
         if (count < limit) {
             const ingredientContainer = document.getElementById("ingredient_input_container");
-        const newIngredientInput = document.createElement("input");
+            const newIngredientInput = document.createElement("input");
 
-        newIngredientInput.type = "text";
-        newIngredientInput.name = "ingredients[]";
-        newIngredientInput.className = "dynamic_ingredients";
-        newIngredientInput.required = true;
+            newIngredientInput.type = "text";
+            newIngredientInput.name = "ingredients[]";
+            newIngredientInput.className = "dynamic_ingredients";
+            newIngredientInput.required = true;
 
-        ingredientContainer.appendChild(newIngredientInput);
+            ingredientContainer.appendChild(newIngredientInput);
         }
         else{
             alert("You have reached the maximum number of ingredients!");

@@ -3,6 +3,9 @@ document.addEventListener("DOMContentLoaded", function() {
     // const heading = document.getElementById("test");
     // heading.textContent = "new text";
 
+    loadPage();
+
+
     document.getElementById("add_recipe").addEventListener("click", function() {
         const form_url = "./form.html";
 
@@ -10,3 +13,107 @@ document.addEventListener("DOMContentLoaded", function() {
     });
     
 });
+
+function loadPage() {
+    fetch("http://localhost:5000/api/recipes")
+    .then(response => response.json())
+    .then(data => {
+        const recipes = data;
+
+        const mainContainer = document.getElementById("main_container");
+
+        recipes.forEach(recipe => {
+        
+            //Main container for each recipe
+            const recipeContainer = document.createElement("div");
+            recipeContainer.className = "recipe_container";
+
+            //Contains header for each recipe
+            const recipeHeader = document.createElement("header");
+            recipeHeader.className = "recipe_header";
+
+            const recipeImage = document.createElement("img");
+            recipeImage.src = "http://placeholder.com/120x120";
+            recipeImage.alt = "Image of food item.";
+            recipeImage.className = "recipe_image";
+
+            const recipeTitle = document.createElement("h2");
+            recipeTitle.textContent = recipe.title;
+            recipeTitle.className = "recipe_title";
+
+            const updateButton = document.createElement("button");
+            updateButton.textContent = "Update";
+            updateButton.className = "update_button";
+
+            const deleteButton = document.createElement("button");
+            deleteButton.textContent = "Delete";
+            deleteButton.className = "delete_button";
+
+            const cookingTime = document.createElement("p");
+            cookingTime.textContent = `Cooking Time: ${recipe.cookingTime} min`;
+            cookingTime.className = "recipe_cooking_time";
+
+            //Attaching content to header
+            recipeHeader.appendChild(recipeImage);
+            recipeHeader.appendChild(recipeTitle);
+            recipeHeader.appendChild(updateButton);
+            recipeHeader.appendChild(deleteButton);
+            recipeHeader.appendChild(cookingTime);
+
+            //Contains instructions and ingredients for each recipe
+            const ingInsContainer = document.createElement("div");
+            ingInsContainer.className = "ingredient_instruction_container";
+
+            //Container for ingredients
+            const ingContainer = document.createElement("div");
+            ingContainer.className = "recipe_ingredient_container";
+
+            const ingredientsTitle = document.createElement("h3");
+            ingredientsTitle.textContent = "Ingredients:";
+            ingredientsTitle.className = "ingredients_title";
+
+            const ingredientList = document.createElement("ul");
+            ingredientList.className = "recipe_ingredient_list";
+
+            recipe.ingredients.forEach(ingredient => {
+                const recipeIngredient = document.createElement("li");
+                recipeIngredient.textContent = ingredient;
+                recipeIngredient.className = "recipe_ingredient";
+
+                ingredientList.appendChild(recipeIngredient);
+            });
+
+            ingContainer.appendChild(ingredientsTitle);
+            ingContainer.appendChild(ingredientList);
+
+            //Container for instructions
+            const insContainer = document.createElement("div");
+            insContainer.className = "recipe_instruction_container";
+
+            const instructionsTitle = document.createElement("h3");
+            instructionsTitle.textContent = "Instructions:";
+            instructionsTitle.className = "instructions_title";
+
+            const instructions = document.createElement("p");
+            instructions.textContent = recipe.instructions;
+            instructions.className = "recipe_instructions";
+
+            insContainer.appendChild(instructionsTitle);
+            insContainer.appendChild(instructions);
+
+            //Appending content to Ingredient and Instruction container
+            ingInsContainer.appendChild(ingContainer);
+            ingInsContainer.appendChild(insContainer);
+
+            //Appending content to the main recipe container
+            recipeContainer.appendChild(recipeHeader);
+            recipeContainer.appendChild(ingInsContainer);
+        
+            //Appending complete recipe to the main element of the page
+            mainContainer.appendChild(recipeContainer);
+        });
+    })
+    .catch(error => {
+        console.error("Could not fetch data: ", error);
+    });
+}
