@@ -30,9 +30,28 @@ document.addEventListener("DOMContentLoaded", function() {
         if(event.target.classList.contains("delete_button")) {
             const recipeId = event.target.getAttribute("data-id");
 
-        }
+            //If the user confirms
+            if(confirm("Are you sure you want to delete this recipe!")){
+
+                //Request the API to remove recipe with with parameter id
+                fetch(`http://localhost:5000/api/recipes/${recipeId}`, {
+                    method: "DELETE"
+                })
+                .then(response => response.json())
+                .then(data => {
+                    //Log success
+                    console.log(data.message + ` Recipe with id ${recipeId}`);
+
+                    //Refresh page
+                    window.location.reload();
+                })
+                .catch(error => {
+                    console.error("Could not delete recipe: " + error);
+                });
+            };
+
+        };
     });
-    
 });
 
 function loadPage() {
