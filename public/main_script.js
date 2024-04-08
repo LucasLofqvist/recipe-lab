@@ -6,10 +6,31 @@ document.addEventListener("DOMContentLoaded", function() {
     loadPage();
 
 
+    //Event listner that redirects the user to the form.html page
     document.getElementById("add_recipe").addEventListener("click", function() {
         const form_url = "./form.html";
 
         window.location.href = form_url;
+    });
+
+    //Event listner for the update buttons
+    document.addEventListener("click", function(event) {
+        //If the event target has the class name update_button
+        if(event.target.classList.contains("update_button")) {
+
+            //Retrive target (recipe-id) attribute
+            const recipeId = event.target.getAttribute("data-id");
+
+            console.log(recipeId);
+        }
+    });
+
+    //Same as for the update button
+    document.addEventListener("click", function(event) {
+        if(event.target.classList.contains("delete_button")) {
+            const recipeId = event.target.getAttribute("data-id");
+
+        }
     });
     
 });
@@ -43,10 +64,12 @@ function loadPage() {
 
             const updateButton = document.createElement("button");
             updateButton.textContent = "Update";
+            updateButton.setAttribute("data-id", recipe._id);
             updateButton.className = "update_button";
 
             const deleteButton = document.createElement("button");
             deleteButton.textContent = "Delete";
+            deleteButton.setAttribute("data-id", recipe._id);
             deleteButton.className = "delete_button";
 
             const cookingTime = document.createElement("p");
