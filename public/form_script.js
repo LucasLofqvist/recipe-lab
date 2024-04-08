@@ -3,6 +3,7 @@ let count = 0;
 //Wait until the page content is loaded
 document.addEventListener("DOMContentLoaded", function() {
 
+    //Event listner for the "Back" button
     document.getElementById("back_button").addEventListener("click", function() {
         const form_url = "./index.html";
 

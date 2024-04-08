@@ -10,6 +10,7 @@ document.addEventListener("DOMContentLoaded", function() {
     document.getElementById("add_recipe").addEventListener("click", function() {
         const form_url = "./form.html";
 
+        //Changing page to the form.html page
         window.location.href = form_url;
     });
 
@@ -18,10 +19,13 @@ document.addEventListener("DOMContentLoaded", function() {
         //If the event target has the class name update_button
         if(event.target.classList.contains("update_button")) {
 
-            //Retrive target (recipe-id) attribute
-            const recipeId = event.target.getAttribute("data-id");
+            //Retrive event target (recipe-id) attribute
+            const recipeTitle = event.target.getAttribute("data-title");
 
-            console.log(recipeId);
+            const update_form_url = `./update_form.html?recipeTitle=${recipeTitle}`;
+
+            //Changing page to the update_form.html page with recipe-id as query parameter
+            window.location.href = update_form_url;
         }
     });
 
@@ -83,7 +87,7 @@ function loadPage() {
 
             const updateButton = document.createElement("button");
             updateButton.textContent = "Update";
-            updateButton.setAttribute("data-id", recipe._id);
+            updateButton.setAttribute("data-title", recipe.title);
             updateButton.className = "update_button";
 
             const deleteButton = document.createElement("button");
