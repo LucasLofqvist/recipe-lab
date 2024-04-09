@@ -13,7 +13,7 @@ body {
     display: flex;
     flex-direction: column;
 
-    border: 1px solid yellow;
+    /* border: 1px solid yellow; */
 
     min-height: 100vh;
 }
@@ -117,11 +117,11 @@ main {
 .ingredient_instruction_container {
     display: flex;
 
-    border: 1px darkgreen solid;
+    /* border: 1px darkgreen solid; */
 }
 
 .recipe_ingredient_container {
-    border: 1px solid purple;
+    /* border: 1px solid purple; */
 
     width: 50%;
 }
@@ -141,7 +141,7 @@ main {
 }
 
 .recipe_instruction_container {
-    border: 1px solid red;
+    /* border: 1px solid red; */
 
     width: 50%;
 }
@@ -166,7 +166,7 @@ main {
     align-items: center;
     justify-content: center;
 
-    border: 1px solid green;
+    /* border: 1px solid green; */
 }
 
 #recipe_form {
@@ -175,14 +175,18 @@ main {
     padding: 10px;
 
     width: 20%;
-    border: 2px solid purple;
+    /* border: 2px solid purple; */
 }
 
 .dynamic_ingredients {
     margin: auto 5px auto auto;
 }
 
-#submit_form_button, #add_ingredient_button {
+#instructions {
+    width: 99%;
+}
+
+#submit_form_button, #add_ingredient_button, #remove_ingredients_button {
     padding: 3px 10px;
 }
 

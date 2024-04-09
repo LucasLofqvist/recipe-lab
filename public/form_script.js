@@ -1,4 +1,5 @@
 let count = 0;
+const limit = 20;
 
 //Wait until the page content is loaded
 document.addEventListener("DOMContentLoaded", function() {
@@ -9,8 +10,6 @@ document.addEventListener("DOMContentLoaded", function() {
 
         window.location.href = form_url;
     });
-
-    const limit = 20;
 
     document.getElementById("add_ingredient_button").addEventListener("click", function() {
         count++;

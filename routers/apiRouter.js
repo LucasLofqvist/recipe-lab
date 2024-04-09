@@ -88,7 +88,7 @@ router.put("/recipes/:id", async (req, res) => {
 
     //Check if body object contains any key-values or if its empty
     if(Object.keys(query).length === 0){
-        res.status(400).json({message: "There are no changes applied to the request."});
+        res.status(400).json({message: "The request body is empty."});
     }
     else{
         try {
@@ -125,7 +125,6 @@ router.delete("/recipes/:id", async (req, res) => {
         const response = await recipes.deleteOne({_id: id});
 
         if (response.deletedCount > 0) {
-            console.log(1);
             res.status(200).json({message: "Document deleted."});
         }
         else {
