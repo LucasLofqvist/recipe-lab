@@ -38,7 +38,7 @@ document.addEventListener("DOMContentLoaded", function() {
             if(confirm("Are you sure you want to delete this recipe!")){
 
                 //Request the API to remove recipe with with parameter id
-                fetch(`http://localhost:5000/api/recipes/${recipeId}`, {
+                fetch(`https://recipe-lab-vst3.onrender.com/api/recipes/${recipeId}`, {
                     method: "DELETE"
                 })
                 .then(response => response.json())
