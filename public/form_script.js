@@ -48,7 +48,7 @@ document.addEventListener("DOMContentLoaded", function() {
             instructions: formData.get("instructions")
         };
 
-        fetch("http://localhost:5000/api/recipes", 
+        fetch("https://recipe-lab-vst3.onrender.com/api/recipes", 
         {
             method: "POST",
             headers: 

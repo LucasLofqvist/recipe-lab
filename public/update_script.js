@@ -19,7 +19,7 @@ document.addEventListener("DOMContentLoaded", function(){
     let originalState = {};
 
     //Loading in the correct recipe
-    fetch(`http://localhost:5000/api/recipes/${recipeTitle}`)
+    fetch(`https://recipe-lab-vst3.onrender.com/api/recipes/${recipeTitle}`)
     .then(response => response.json())
     .then(data => {
 
@@ -84,7 +84,7 @@ document.addEventListener("DOMContentLoaded", function(){
             alert("No changes has been made to the recipe");
         }
         else {
-            fetch(`http://localhost:5000/api/recipes/${recipeId}`, {
+            fetch(`https://recipe-lab-vst3.onrender.com/api/recipes/${recipeId}`, {
                 method: "PUT",
                 headers: { "content-type" : "application/json "},
                 body: JSON.stringify(updatedForm)
