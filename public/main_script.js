@@ -59,7 +59,7 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
 function loadPage() {
-    fetch("http://localhost:5000/api/recipes")
+    fetch("https://recipe-lab-vst3.onrender.com/api/recipes")
     .then(response => response.json())
     .then(data => {
         const recipes = data;
